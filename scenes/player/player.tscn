@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsglrv6wd5e8j"]
+[gd_scene load_steps=7 format=3 uid="uid://dsglrv6wd5e8j"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_14wig"]
 [ext_resource type="Texture2D" uid="uid://dcf7hx4t6s3ls" path="res://scenes/player/Player2.png" id="1_dnpg4"]
+[ext_resource type="PackedScene" uid="uid://dl7cf8hmciifq" path="res://scenes/Weapons/Guns/basic_gun/basic_gun.tscn" id="3_mfyfc"]
+[ext_resource type="PackedScene" uid="uid://b7chtigsf7xxb" path="res://scenes/Weapons/Guns/shotgun_gun/shotgun_gun.tscn" id="3_xslnb"]
+[ext_resource type="PackedScene" uid="uid://dc5q61f78sw0v" path="res://scenes/Components/VelocityComponent/velocity_component.tscn" id="4_r0vlr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cdcq5"]
 radius = 32.0156
@@ -16,15 +19,18 @@ texture = ExtResource("1_dnpg4")
 hframes = 5
 vframes = 5
 
-[node name="Marker2D1" type="Marker2D" parent="."]
-position = Vector2(17, 0)
-
-[node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(17, -10)
-
-[node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(17, 10)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-16, 1)
 shape = SubResource("CircleShape2D_cdcq5")
+
+[node name="ShotgunGun" parent="." instance=ExtResource("3_xslnb")]
+position = Vector2(27, 10)
+
+[node name="Basic_Gun" parent="." instance=ExtResource("3_mfyfc")]
+visible = false
+position = Vector2(12, 12)
+
+[node name="VelocityComponent" parent="." instance=ExtResource("4_r0vlr")]
+max_speed = 200
+acceleration = 20.0

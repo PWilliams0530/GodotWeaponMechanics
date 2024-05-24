@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7chtigsf7xxb"]
+
+[ext_resource type="Script" path="res://scenes/Weapons/Guns/shotgun_gun/shotgun_gun.gd" id="1_gve7s"]
+[ext_resource type="Texture2D" uid="uid://bl5ej2wo5i120" path="res://scenes/Weapons/Guns/shotgun_gun/shotgun_gun.png" id="1_s1lvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tq00"]
+size = Vector2(55.5, 30)
+
+[node name="ShotgunGun" type="Area2D"]
+script = ExtResource("1_gve7s")
+
+[node name="Marker2D1" type="Marker2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(32, 5)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(32, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.287979
+texture = ExtResource("1_s1lvq")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, -6)
+shape = SubResource("RectangleShape2D_8tq00")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+
+[node name="BulletLifeLengthTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="BulletLifeLengthTimer" to="." method="_on_bullet_life_length_timer_timeout"]

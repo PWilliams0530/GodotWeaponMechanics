@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl7cf8hmciifq"]
+
+[ext_resource type="Script" path="res://scenes/Weapons/Guns/basic_gun/basic_gun.gd" id="1_0tftk"]
+[ext_resource type="Texture2D" uid="uid://3ft4t173hr1m" path="res://scenes/Weapons/Guns/basic_gun/blasterA.png" id="1_rgsg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rc8n"]
+
+[node name="BasicGun" type="Area2D"]
+script = ExtResource("1_0tftk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 2)
+rotation = 0.518363
+scale = Vector2(0.515625, 0.53125)
+texture = ExtResource("1_rgsg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_4rc8n")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(34, -1)
